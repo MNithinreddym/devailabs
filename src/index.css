@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-headline: "Manrope", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-label: "Space Grotesk", sans-serif;
+
+  --color-background: #0c0e12;
+  --color-surface: #111318;
+  --color-surface-high: #1d2025;
+  --color-primary: #ffc107;
+  --color-on-primary: #422e00;
+  --color-secondary: #dde2f3;
+  --color-tertiary: #ac89ff;
+  --color-info: #00bcd4;
+  --color-success: #4caf50;
+  --color-on-surface: #f6f6fc;
+  --color-on-surface-variant: #aaabb0;
+  --color-outline-variant: #46484d;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-on-surface font-body antialiased;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    background: rgba(35, 38, 44, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .primary-gradient {
+    background: linear-gradient(135deg, #ffc107 0%, #ffca28 100%);
+  }
+
+  .intelligence-glow {
+    box-shadow: 0 0 20px rgba(255, 193, 7, 0.08);
+    border: 1px solid rgba(255, 193, 7, 0.1);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #ffc107 0%, #ffca28 100%);
+  }
+
+  .animate-spin-slow {
+    animation: spin 8s linear infinite;
+  }
+
+  .aurora-glow {
+    background: radial-gradient(circle at center, rgba(255, 193, 7, 0.15) 0%, rgba(172, 137, 255, 0.1) 50%, transparent 100%);
+    filter: blur(40px);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
